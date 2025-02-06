@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<extension type="package" version="4.3.4" method="upgrade">
+    <name>pkg_radicalmart_wishboxfirstorderstatus</name>
+    <packagename>radicalmart_wishboxdellin</packagename>
+    <author>Nekrasov Vitaliy</author>
+    <authorEmail>nekrasov_vitaliy@list.ru</authorEmail>
+    <creationDate>February 2025</creationDate>
+    <version>1.0.0</version>
+    <packager>Nekrasov Vitaliy</packager>
+    <description>PKG_RADICALMART_WISHBOXFIRSTORDERSTATUS_XML_DESCRIPTION</description>
+    <scriptfile>script.php</scriptfile>
+    <languages folder="language">
+        <language tag="en-GB">en-GB/pkg_radicalmart_wishboxfirstorderstatus.sys.ini</language>
+        <language tag="ru-RU">ru-RU/pkg_radicalmart_wishboxfirstorderstatus.sys.ini</language>
+    </languages>
+    <files>
+        <file type="plugin" group="radicalmart" id="wishboxfirstorderstatus">plg_radicalmart_wishboxfirstorderstatus.zip</file>
+    </files>
+</extension>

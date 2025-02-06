@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="plg_radicalmart_wishboxfirstorderstatus_j5" default="make" basedir=".">
+    <property name="build" value="build" />
+    <property name="prefix" value="pkg" />
+    <property name="extension" value="radicalmart" />
+    <property name="version" value="1.0.0" />
+
+    <target name="make" description="Builds the extension release package for a version.">
+        <delete quiet="yes">
+            <fileset dir=".">
+                <include name="pkg_radicalmart_wishboxfirstorderstatus_j5.zip" />
+            </fileset>
+        </delete>
+
+        <zip destfile="plg_radicalmart_wishboxfirstorderstatus/plg_radicalmart_wishboxfirstorderstatus.zip">
+            <fileset dir="./plg_radicalmart_wishboxfirstorderstatus">
+                <include name="language/**" />
+                <include name="services/**" />
+                <include name="src/**" />
+                <include name="script.php" />
+                <include name="wishboxfirstorderstatus.xml" />
+            </fileset>
+        </zip>
+
+        <zip destfile="pkg_radicalmart_wishboxfirstorderstatus_j5.zip">
+            <fileset dir="./plg_radicalmart_wishboxfirstorderstatus">
+                <include name="plg_radicalmart_wishboxfirstorderstatus.zip" />
+            </fileset>
+            <fileset dir=".">
+                <include name="language/**" />
+                <include name="script.php" />
+                <include name="pkg_radicalmart_wishboxfirstorderstatus.xml" />
+            </fileset>
+        </zip>
+
+        <delete quiet="yes">
+            <fileset dir=".">
+                <include name="plg_radicalmart_wishboxfirstorderstatus/plg_radicalmart_wishboxfirstorderstatus.zip" />
+            </fileset>
+        </delete>
+    </target>
+</project>

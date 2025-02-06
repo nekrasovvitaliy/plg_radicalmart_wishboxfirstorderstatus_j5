@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension version="5.2.3" type="plugin" group="radicalmart" method="upgrade">
+	<name>plg_radicalmart_wishboxfirstorderstatus</name>
+	<author>Nekrasov Vitaliy</author>
+	<creationDate>January 2025</creationDate>
+	<license>https://www.gnu.org/copyleft/gpl.html GNU/GPL</license>
+	<authorEmail>nekrasov_vitaliy@list.ru</authorEmail>
+	<version>1.0.0</version>
+	<description>PLG_RADICALMART_WISHBOXFIRSTORDERSTATUS_XML_DESCRIPTION</description>
+	<namespace path="src">Joomla\Plugin\RadicalMart\Wishboxfirstorderstatus</namespace>
+	<scriptfile>script.php</scriptfile>
+	<files>
+		<folder plugin="wishboxfirstorderstatus">services</folder>
+		<folder>src</folder>
+	</files>
+	<languages>
+		<language tag="en-GB">language/en-GB/plg_radicalmart_wishboxfirstorderstatus.ini</language>
+		<language tag="en-GB">language/en-GB/plg_radicalmart_wishboxfirstorderstatus.sys.ini</language>
+		<language tag="ru-RU">language/ru-RU/plg_radicalmart_wishboxfirstorderstatus.ini</language>
+		<language tag="ru-RU">language/ru-RU/plg_radicalmart_wishboxfirstorderstatus.sys.ini</language>
+	</languages>
+	<config>
+		<fields name="params">
+			<fieldset name="basic">
+				<field
+						name="field_id"
+						type="fields"
+						label="PLG_RADICALMART_WISHBOXFIRSTORDERSTATUS_FIELD_FIELD_XML_DESCRIPTION"
+						addfieldprefix="Joomla\Component\RadicalMart\Administrator\Field"
+				/>
+				<field
+						name="order_status_id"
+						type="statuses"
+						label="PLG_RADICALMART_WISHBOXFIRSTORDERSTATUS_FIELD_ORDER_STATUS_XML_DESCRIPTION"
+						addfieldprefix="Joomla\Component\RadicalMart\Administrator\Field"
+				/>
+			</fieldset>
+		</fields>
+	</config>
+</extension>
