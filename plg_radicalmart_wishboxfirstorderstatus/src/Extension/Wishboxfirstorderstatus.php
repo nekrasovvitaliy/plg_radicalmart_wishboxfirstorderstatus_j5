@@ -124,7 +124,10 @@ class Wishboxfirstorderstatus extends CMSPlugin implements SubscriberInterface
 
 			foreach ($orderItem->products as $product)
 			{
-				if ($product->fieldsRaw[$fieldTable->alias] != 1)
+				if (!is_array($product->fieldsRaw)
+					|| !isset($product->fieldsRaw[$fieldTable->alias])
+					|| !is_array($product->fieldsRaw[$fieldTable->alias])
+					|| !in_array(1, $product->fieldsRaw[$fieldTable->alias]))
 				{
 					$flag = false;
 
@@ -154,9 +157,9 @@ class Wishboxfirstorderstatus extends CMSPlugin implements SubscriberInterface
 	 *
 	 * @since 1.0.0
 	 *
-	 * @noinspection Phpunused
+	 * @noinspection PhpUnused
 	 */
-	public function onRadicalMartAfterChangeOrderStatus($context, $order, $oldStatus, $newStatus, $isNew): bool
+	public function onRadicalMartAfterChangeOrderStatus(string $context, $order, $oldStatus, $newStatus, $isNew): bool
 	{
 		if ($context === 'com_radicalmart.checkout' && $isNew)
 		{
@@ -185,7 +188,10 @@ class Wishboxfirstorderstatus extends CMSPlugin implements SubscriberInterface
 
 			foreach ($order->products as $product)
 			{
-				if ($product->fieldsRaw[$fieldTable->alias] != 1)
+				if (!is_array($product->fieldsRaw)
+					|| !isset($product->fieldsRaw[$fieldTable->alias])
+					|| !is_array($product->fieldsRaw[$fieldTable->alias])
+					|| !in_array(1, $product->fieldsRaw[$fieldTable->alias]))
 				{
 					$flag = false;
 

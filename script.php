@@ -69,24 +69,6 @@ return new class implements ServiceProviderInterface
 				protected string $minimumPhp = '8.1';
 
 				/**
-				 * Minimum Wishbox library version required to install the extension.
-				 *
-				 * @var  string
-				 *
-				 * @since  1.0.0
-				 */
-				protected string $minimumWishbox = '1.0.0';
-
-				/**
-				 * Minimum Wishboxdellin library version required to install the extension.
-				 *
-				 * @var  string
-				 *
-				 * @since  1.0.0
-				 */
-				protected string $minimumWishboxdellin = '1.0.0';
-
-				/**
 				 * Constructor.
 				 *
 				 * @param   AdministratorApplication  $app  The application object.
@@ -212,63 +194,7 @@ return new class implements ServiceProviderInterface
 						return false;
 					}
 
-					$wishboxLibraryVersion = $this->getWishboxLibraryVersion();
-
-					// Check Wishbox library version
-					if (!(version_compare($wishboxLibraryVersion, $this->minimumWishbox) >= 0))
-					{
-						$app->enqueueMessage(
-							Text::sprintf('PKG_JSHOPPING_WISHBOXLOCATION_ERROR_COMPATIBLE_WISHBOX_LIBRARY', $this->minimumWishbox),
-							'error'
-						);
-
-						return false;
-					}
-
-					$wishboxdellinLibraryVersion = $this->getWishboxdellinLibraryVersion();
-
-					// Check Wishbox library version
-					if (!(version_compare($wishboxdellinLibraryVersion, $this->minimumWishboxdellin) >= 0))
-					{
-						$app->enqueueMessage(
-							Text::sprintf('PKG_JSHOPPING_WISHBOXLOCATION_ERROR_COMPATIBLE_WISHBOXDELLIN_LIBRARY', $this->minimumWishboxdellin),
-							'error'
-						);
-
-						return false;
-					}
-
 					return true;
-				}
-
-				/**
-				 * @return string
-				 *
-				 * @since 1.0.0
-				 */
-				protected function getWishboxLibraryVersion(): string
-				{
-					$extensionTable = new Extension(Factory::getContainer()->get('DatabaseDriver'));
-					$extensionTable->load(['name' => 'lib_wishbox']);
-					/** @noinspection PhpUndefinedFieldInspection */
-					$manifestCache = new Registry($extensionTable->manifest_cache); // phpcs:ignore
-
-					return $manifestCache->get('version', '');
-				}
-
-				/**
-				 * @return string
-				 *
-				 * @since 1.0.0
-				 */
-				protected function getWishboxdellinLibraryVersion(): string
-				{
-					$extensionTable = new Extension(Factory::getContainer()->get('DatabaseDriver'));
-					$extensionTable->load(['name' => 'lib_wishboxdellin']);
-					/** @noinspection PhpUndefinedFieldInspection */
-					$manifestCache = new Registry($extensionTable->manifest_cache); // phpcs:ignore
-
-					return $manifestCache->get('version', '');
 				}
 			}
 		);
